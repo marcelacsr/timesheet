@@ -1,0 +1,16 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  collate: utf8mb4_unicode_ci
+  host: mysql
+  port: 3306
+  username: root
+  password: password
+
+development:
+  <<: *default
+  database: timesheet_development
+
+test:
+  <<: *default
+  database: timesheet_test
