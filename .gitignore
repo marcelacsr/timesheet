@@ -17,19 +17,19 @@
 /log
 /log/*
 /tmp/*
-!/log/.keep
-!/tmp/.keep
+/log/.keep
+/tmp/.keep
 .idea/
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
 !/tmp/pids/
-!/tmp/pids/.keep
+/tmp/pids/.keep
 
 # Ignore uploaded files in development.
 /storage
 /storage/*
-!/storage/.keep
+/storage/.keep
 
 /public/assets
 .byebug_history
