@@ -1,0 +1,11 @@
+<h1>Articles</h1>
+
+<ul>
+  <% @time_entries.each do |time_entry| %>
+    <li>
+      <a href="/time_entries/<%= time_entry.id %>">
+        <%= time_entry.date %>
+      </a>
+    </li>
+  <% end %>
+</ul>
