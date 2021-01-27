@@ -1,0 +1,30 @@
+html, body{
+  font-family: Montserrat;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+}
+
+
+h1, .h1{
+    margin-left: 2rem;
+}
+
+.rounded-border{
+  border: .3rem solid
+}
+
+.border-top-footer{
+  border-top: 3px solid #6f42c1;
+}
