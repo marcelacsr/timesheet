@@ -31,8 +31,8 @@ gem 'jquery-datatables'
 gem 'jquery-datatables-rails'
 # gem 'bootstrap', '~> 5.0.0.beta1'
 # gem 'sassc-rails'
-gem 'webpacker'
 gem 'font-awesome-rails'
+gem 'webpacker'
 
 group :assets do
   gem 'sass-rails'

@@ -7,44 +7,48 @@
   </div>
 
   <div class="row mt-3">
+    <div class="card card-primary col ml-2">
+      <div class="card-body" tabindex="0">
+        <div class="table-responsive mt-4 pt-1 pr-1">
+          <table id="dttb-table" class="table table-hover table-striped table-sm mt-3 text-center" tabindex="0">
+            <caption>Esta é a legenda da tabela com Datatables.</caption>
+            <thead class="thead-primary">
+            <tr>
+              <th scope="col">Data</th>
+              <th scope="col">Dia da semana</th>
+              <th scope="col">Chegada</th>
+              <th colspan="2" scope="colgroup">Almoco</th>
+              <th scope="col">Saida</th>
+            </tr>
+            </thead>
+            <tbody>
 
-    <div class="table-responsive mt-4 pt-1 pr-1">
-      <table id="dttb-table" class="table table-hover table-striped table-sm mt-3" tabindex="0">
-        <caption>Esta é a legenda da tabela com Datatables.</caption>
-        <thead class="thead-primary">
-        <tr>
-          <th scope="col">Data</th>
-          <th scope="col">Dia da semana</th>
-          <th scope="col">Chegada</th>
-          <th scope="col">Almoco</th>
-          <th scope="col">Almoco</th>
-          <th scope="col">Saida</th>
-        </tr>
-        </thead>
-        <tbody>
-
-        <% @time_entries.each do |time_entry| %>
-          <tr>
-            <th scope="row">
-              <%= time_entry.date %>
-            </th>
-            <td></td>
-            <td>
-              <%= time_entry.first_period_in %>
-            </td>
-            <td>
-              <%= time_entry.first_period_out %>
-            </td>
-            <td>
-              <%= time_entry.second_period_in %>
-            </td>
-            <td>
-              <%= time_entry.second_period_in %>
-            </td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
+            <% @time_entries.each do |time_entry| %>
+              <tr>
+                <th scope="row">
+                  <%= time_entry.date.strftime('%d/%m/%Y') %>
+                </th>
+                <td>
+                <%= time_entry.date.strftime('%A') %>
+                </td>
+                <td>
+                  <%= format_date(time_entry.first_period_in) %>
+                </td>
+                <td>
+                  <%= format_date(time_entry.first_period_out) %>
+                </td>
+                <td>
+                  <%= format_date(time_entry.second_period_in) %>
+                </td>
+                <td>
+                  <%= format_date(time_entry.second_period_in) %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>

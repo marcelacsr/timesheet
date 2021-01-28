@@ -1,41 +1,46 @@
+<div class="row mt-3">
+  <div class="card card-primary col ml-2">
+    <div class="card-body" tabindex="0">
+      <p><%= Date.today.strftime('%d/%m/%Y') %></p>
+      <p>Hora: <%= Time.now.to_s(:time) %></p>
 
-<p><%= Date.today.strftime('%d/%m/%Y') %></p>
-<p>Hora: <%= Time.now.to_s(:time) %></p>
+      <%= form_with model: @time_entry, url: users_time_entries_path do |form| %>
+        < %= form.hidden_field :date, value: Date.today %>
+        < %= binding.pry %>
+        <div>
+          <%= form.label :chegada%><br>
+          <%= time_select('chegada', :first_period_in) %>
+        </div>
 
-<%= form_with model: @time_entry, url: users_time_entries_path do |form| %>
-  < %= form.hidden_field :date, value: Date.today %>
-<%= binding.pry %>
-  <div>
-    <%= form.label :chegada%><br>
-    <%= time_select('chegada', :first_period_in) %>
+        <div>
+          <%= form.label 'Inicio' %><br>
+          <%= time_select('chegada', :first_period_out) %>
+        </div>
+        <div>
+          <%= form.label 'Termino' %><br>
+          <%= time_select('chegada', :second_period_in) %>
+        </div>
+
+        <div>
+          <%= form.label 'Saida' %><br>
+          < %= time_select('chegada', :second_period_out) %>
+
+          < %= form.hidden_field :second_period_out %>
+          <%= select_hour(13, html_options:
+              {second_period_out: :second_period_out}) %>
+          <%= select_minute(14) %>
+          <%= select_datetime() %>
+        </div>
+        < %=  date_select("article", "written_on", selected: Date.today) %>
+        < %= datetime_select("article", "written_on") %>
+
+        < %= select_hour(13) %>
+        < %= select_minute(14) %>
+
+        <div>
+          <%= form.submit %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div>
-    <%= form.label 'Inicio' %><br>
-    <%= time_select('chegada', :first_period_out) %>
-  </div>
-  <div>
-    <%= form.label 'Termino' %><br>
-    <%= time_select('chegada', :second_period_in) %>
-  </div>
-
-  <div>
-    <%= form.label 'Saida' %><br>
-    < %= time_select('chegada', :second_period_out) %>
-
-    < %= form.hidden_field :second_period_out %>
-    <%= select_hour(13, html_options:
-        {second_period_out: :second_period_out}) %>
-    <%= select_minute(14) %>
-    <%= select_datetime() %>
-  </div>
-  < %=  date_select("article", "written_on", selected: Date.today) %>
-  < %= datetime_select("article", "written_on") %>
-
-  < %= select_hour(13) %>
-  < %= select_minute(14) %>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
