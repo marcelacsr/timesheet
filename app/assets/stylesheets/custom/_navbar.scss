@@ -1,23 +1,23 @@
 .navbar {
   .navbar-brand > img{
-    width: 50%;
+    width: 90%;
   }
   .nav-item{
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
 }
 
 .navbar-dark {
   .navbar-nav {
     .nav-link {
-      color: #F7F7F7;
+      color: lightgray;
       letter-spacing: .1rem;
       &:after {
         content: '';
-        background: #F7F7F7;
+        background: lightgray;
         display: block;
         width: 0;
-        height: 2px;
+        height: 1px;
         transition: width .3s;
       }
       &:hover:after {
@@ -28,7 +28,7 @@
   .navbar-toggler{
     border: none;
     .navbar-toggler-icon{
-      color: #F7F7F7;
+      color: lightgray;
     }
   }
 }

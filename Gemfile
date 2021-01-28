@@ -27,8 +27,11 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # gem 'rack-cors'
 #
 gem 'devise'
+gem 'jquery-datatables'
+gem 'jquery-datatables-rails'
 # gem 'bootstrap', '~> 5.0.0.beta1'
 # gem 'sassc-rails'
+gem 'webpacker'
 
 group :assets do
   gem 'sass-rails'

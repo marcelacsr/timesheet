@@ -1,11 +1,50 @@
-<h1>Articles</h1>
+<div class="container">
+  <div class="row">
+    <h1 tabindex="0">
+      Historico
+      <small class="h4 text-muted">de Apontamentos</small>
+    </h1>
+  </div>
 
-<ul>
-  <% @time_entries.each do |time_entry| %>
-    <li>
-      <a href="/time_entries/<%= time_entry.id %>">
-        <%= time_entry.date %>
-      </a>
-    </li>
-  <% end %>
-</ul>
+  <div class="row mt-3">
+
+    <div class="table-responsive mt-4 pt-1 pr-1">
+      <table id="dttb-table" class="table table-hover table-striped table-sm mt-3" tabindex="0">
+        <caption>Esta é a legenda da tabela com Datatables.</caption>
+        <thead class="thead-primary">
+        <tr>
+          <th scope="col">Data</th>
+          <th scope="col">Dia da semana</th>
+          <th scope="col">Chegada</th>
+          <th scope="col">Almoco</th>
+          <th scope="col">Almoco</th>
+          <th scope="col">Saida</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <% @time_entries.each do |time_entry| %>
+          <tr>
+            <th scope="row">
+              <%= time_entry.date %>
+            </th>
+            <td></td>
+            <td>
+              <%= time_entry.first_period_in %>
+            </td>
+            <td>
+              <%= time_entry.first_period_out %>
+            </td>
+            <td>
+              <%= time_entry.second_period_in %>
+            </td>
+            <td>
+              <%= time_entry.second_period_in %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

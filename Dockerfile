@@ -1,5 +1,5 @@
 FROM ruby:2.7.2-alpine
-RUN apk update && apk add bash mariadb-dev tzdata ruby-dev build-base curl git less libxml2-dev libxslt-dev
+RUN apk update && apk add bash mariadb-dev tzdata ruby-dev build-base curl git less libxml2-dev libxslt-dev nodejs npm yarn
 WORKDIR /timesheet
 COPY Gemfile /timesheet/Gemfile
 #COPY Gemfile.lock /timesheet/Gemfile.lock

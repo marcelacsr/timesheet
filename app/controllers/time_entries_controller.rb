@@ -13,10 +13,10 @@ class TimeEntriesController < ApplicationController
   end
 
   def create
-    @time_entry = TimeEntry.new(time_entry_params)
-
+    @user = current_user
+    @time_entry = @user.time_entries.new(time_entry_params)
     if @time_entry.save
-      redirect_to @time_entry
+      redirect_to user_time_entries_path(@user)
     else
       render :new
     end
@@ -25,6 +25,8 @@ class TimeEntriesController < ApplicationController
   private
 
   def time_entry_params
-    params.require(:time_entry).permit(:date)
+    params.require(:time_entry).permit(:date,
+                                       :first_period_in, :first_period_out,
+                                       :second_period_in, :second_period_out)
   end
 end
