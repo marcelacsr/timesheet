@@ -3,21 +3,48 @@
 
 <div class="row">
   <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Apontar Horas</h5>
 
-        <button type="button" class="btn btn-primary btn-lg">Apontar Horas</button>
+    <div class="card card-primary col ml-2">
+      <div class="card-header" tabindex="0">
+        <h2 class="h5 card-title">Apontar Horas</h2>
+        <h3 class="h6 card-subtitle text-muted">Subtítulo</h3>
+      </div>
+      <div class="card-body" tabindex="0">
+        <p class="card-text">
+          Aqui fica o corpo do card! Use-o para adicionar coisas legais!
+        </p>
+      </div>
+      <div class="card-footer" tabindex="0">
+
+        <% if current_user.time_entries.last.date != Date.today %>
+          <%= link_to new_users_time_entry_path, class: 'btn btn-sm btn-outline-primary mr-2 d-block' do %>
+            <span class="btn-text">Apontar Horas</span>
+          <% end %>
+        <% else %>
+          <%= link_to edit_users_time_entry_path(current_user), class: 'btn btn-sm btn-outline-primary mr-2 d-block' do %>
+            <span class="btn-text">Apontar Horas</span>
+          <% end %>
+        <% end %>
 
       </div>
     </div>
   </div>
 
   <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Historico de Horas</h5>
-        <button type="button" class="btn btn-primary btn-lg">Visualizar</button>
+    <div class="card card-primary col ml-2">
+      <div class="card-header" tabindex="0">
+        <h2 class="h5 card-title">Historico de Horas</h2>
+        <h3 class="h6 card-subtitle text-muted">Subtítulo</h3>
+      </div>
+      <div class="card-body" tabindex="0">
+        <p class="card-text">
+          Aqui fica o corpo do card! Use-o para adicionar coisas legais!
+        </p>
+      </div>
+      <div class="card-footer" tabindex="0">
+        <%= link_to users_time_entries_path, class: 'btn btn-sm btn-outline-primary mr-2 d-block' do %>
+          <span class="btn-text">Visualizar</span>
+        <% end %>
       </div>
     </div>
   </div>

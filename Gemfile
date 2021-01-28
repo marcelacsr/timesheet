@@ -32,6 +32,7 @@ gem 'jquery-datatables-rails'
 # gem 'bootstrap', '~> 5.0.0.beta1'
 # gem 'sassc-rails'
 gem 'webpacker'
+gem 'font-awesome-rails'
 
 group :assets do
   gem 'sass-rails'
@@ -39,6 +40,7 @@ end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'awesome_print'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner'
   gem 'factory_bot_rails'
