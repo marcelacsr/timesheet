@@ -2,11 +2,12 @@ version: "3.9"
 services:
   mysql:
     image: mysql:8.0
-#    command: --default-authentication-plugin=mysql_native_password
-#    restart: always
+    #    command: --default-authentication-plugin=mysql_native_password
+    #    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: timesheet_development
+      SELENIUM_REMOTE_URL: http://webdriver_chrome:4444/wd/hub
     ports:
       - "3306:3306"
   app:
@@ -20,4 +21,7 @@ services:
       - mysql:mysql
     depends_on:
       - mysql
+      - webdriver_chrome
     tty: true
+  webdriver_chrome:
+    image: selenium/standalone-chrome

@@ -5,42 +5,30 @@
       <p>Hora: <%= Time.now.to_s(:time) %></p>
 
       <%= form_with model: @time_entry, url: users_time_entries_path do |form| %>
-        < %= form.hidden_field :date, value: Date.today %>
-        < %= binding.pry %>
+<!--        < %= form.hidden_field '[time_entry][date]', value: Date.today %>-->
+        <%= form.hidden_field :date, value: Date.today %>
         <div>
-          <%= form.label :chegada%><br>
-          <%= time_select('chegada', :first_period_in) %>
-        </div>
-
-        <div>
-          <%= form.label 'Inicio' %><br>
-          <%= time_select('chegada', :first_period_out) %>
-        </div>
-        <div>
-          <%= form.label 'Termino' %><br>
-          <%= time_select('chegada', :second_period_in) %>
-        </div>
-
-        <div>
-          <%= form.label 'Saida' %><br>
-          < %= time_select('chegada', :second_period_out) %>
-
-          < %= form.hidden_field :second_period_out %>
-          <%= select_hour(13, html_options:
-              {second_period_out: :second_period_out}) %>
-          <%= select_minute(14) %>
-          <%= select_datetime() %>
-        </div>
-        < %=  date_select("article", "written_on", selected: Date.today) %>
-        < %= datetime_select("article", "written_on") %>
-
-        < %= select_hour(13) %>
-        < %= select_minute(14) %>
-
-        <div>
-          <%= form.submit %>
-        </div>
+          <div class="form-group">
+            <%= form.label 'Entrada' %>
+            <%= select_time(Time.now, prefix: '[time_entry][first_period_in]') %>
+          </div>
+          <div class="form-group">
+            <%= form.label 'Almoco' %>
+            <%= select_time(Time.now, prefix: '[time_entry][first_period_out]') %>
+          </div>
+          <div class="form-group">
+            <%= form.label 'Almoco' %>
+            <%= select_time(Time.now, prefix: '[time_entry][second_period_in]') %>
+          </div>
+          <div class="form-group">
+            <%= form.label 'Saida' %>
+            <%= select_time(Time.now, prefix: '[time_entry][second_period_out]') %>
+          </div>
+          <div>
+            <%= form.submit 'Enviar', class: 'btn btn-sm btn-outline-success mt-3 d-block' %>
+          </div>
       <% end %>
+      </div>
     </div>
   </div>
 </div>

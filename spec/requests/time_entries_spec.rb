@@ -14,32 +14,28 @@ RSpec.describe 'QuestionAccesses', type: :request do
 
     describe '#index' do
       context 'user logged' do
+        before(:each) do
+          login_user(user)
+          get users_time_entries_path
+        end
 
+        it 'returns status 200 ok' do
+          expect(response).to have_http_status(200)
+        end
 
-      before(:each) do
-        login_user(user)
-        get users_time_entries_path
+        it { expect(response.body).to include('Historico') }
       end
-
-      it 'returns status 200 ok' do
-        expect(response).to have_http_status(200)
-      end
-
-      it { expect(response.body).to include('Historico') }
-
-    end
     end
 
-    describe "user not log in" do
+    describe 'user not log in' do
       before :each do
         login_user nil
       end
 
-      it "should be redirected to signin" do
+      it 'should be redirected to signin' do
         get :index
-        expect( response ).to redirect_to( new_user_session_path )
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end
 end
-
