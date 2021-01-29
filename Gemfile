@@ -31,6 +31,7 @@ gem 'jquery-datatables'
 gem 'jquery-datatables-rails'
 # gem 'bootstrap', '~> 5.0.0.beta1'
 # gem 'sassc-rails'
+gem 'awesome_print'
 gem 'font-awesome-rails'
 gem 'webpacker'
 
@@ -40,18 +41,18 @@ end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'awesome_print'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'pry'
   gem 'rspec-html-matchers'
   gem 'rspec-rails', '~> 4.0.2'
   gem 'rubocop'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
+  gem 'webdrivers', require: !ENV['SELENIUM_REMOTE_URL']
 end
 
 group :development do
